@@ -2,7 +2,8 @@
 
 
 #include "Core/Player/LBCharacter.h"
-
+#include "EnhancedInputSubsystems.h"
+#include "EnhancedInputComponent.h"
 
 // Sets default values
 ALBCharacter::ALBCharacter()
@@ -16,7 +17,13 @@ ALBCharacter::ALBCharacter()
 void ALBCharacter::BeginPlay()
 {
 	Super::BeginPlay();
-
+	if (APlayerController* PlayerController = Cast<APlayerController>(Controller))
+	{
+		if (UEnhancedInputLocalPlayerSubsystem* Subsystem = ULocalPlayer::GetSubsystem<UEnhancedInputLocalPlayerSubsystem>(PlayerController->GetLocalPlayer()))
+		{
+			Subsystem->AddMappingContext(MoveMappingContext, 0);
+		}
+	}
 }
 
 // Called every frame
@@ -30,11 +37,17 @@ void ALBCharacter::Tick(float DeltaTime)
 void ALBCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
 {
 	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	UEnhancedInputComponent* EnhancedInputComponent=Cast<UEnhancedInputComponent>(PlayerInputComponent);
+	if (EnhancedInputComponent)
+	{
+		EnhancedInputComponent->BindAction(MoveAction,ETriggerEvent::Triggered,this,&ALBCharacter::Move);
+	}
 }
 
 void ALBCharacter::Move(const FInputActionValue& Value)
 {
-	
+	FVector2D MovementVector=Value.Get<FVector2D>();
+	AddMovementInput(GetActorForwardVector(),MovementVector.Y);
+	AddMovementInput(GetActorRightVector(),MovementVector.X);
 }
 

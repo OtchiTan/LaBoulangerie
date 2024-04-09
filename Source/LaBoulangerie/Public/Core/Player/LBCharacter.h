@@ -6,9 +6,10 @@
 #include "GameFramework/Character.h"
 #include "LBCharacter.generated.h"
 
+
 class UInputMappingContext;
 class UInputAction;
-class FInputActionValue;
+struct FInputActionValue;
 
 UCLASS()
 class LABOULANGERIE_API ALBCharacter : public ACharacter
