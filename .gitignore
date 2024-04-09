@@ -12,3 +12,8 @@ Saved
 *.suo
 *.xcodeproj
 *.xcworkspace
+.idea/.idea.LaBoulangerie/.idea/.gitignore
+.idea/.idea.LaBoulangerie/.idea/encodings.xml
+.idea/.idea.LaBoulangerie/.idea/indexLayout.xml
+.idea/.idea.LaBoulangerie/.idea/vcs.xml
+.vsconfig
