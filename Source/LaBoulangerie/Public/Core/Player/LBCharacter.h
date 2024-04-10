@@ -21,7 +21,7 @@ class LABOULANGERIE_API ALBCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ALBCharacter();
-	UPROPERTY(EditAnywhere)
+	UPROPERTY(BlueprintReadWrite,EditAnywhere)
 	ULBInventoryComponent* InventoryComponent;
 	
 protected:

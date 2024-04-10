@@ -3,17 +3,21 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Structs/LBItemData.h"
 #include "UObject/NoExportTypes.h"
 #include "LBItem.generated.h"
 
 /**
  * 
  */
-UCLASS()
+UCLASS(Blueprintable)
 class LABOULANGERIE_API ULBItem : public UObject
 {
 	GENERATED_BODY()
 public:
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	int Quantity;
+	UPROPERTY(BlueprintReadWrite)
+	FLBItemData ItemData;
+	int AddItem(ULBItem);
 };

@@ -8,10 +8,10 @@ USTRUCT(BlueprintType)
 struct LABOULANGERIE_API FLBItemData:public FTableRowBase
 {
 	GENERATED_BODY()
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	FName Nom;
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	int StackMax;
-	UPROPERTY(BlueprintReadOnly, EditDefaultsOnly)
+	UPROPERTY(BlueprintReadWrite, EditDefaultsOnly)
 	UTexture2D* Icon;
 };

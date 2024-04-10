@@ -3,3 +3,8 @@
 
 #include "Core/Inventory/LBItem.h"
 
+int ULBItem::AddItem(ULBItem* ItemToAdd)
+{
+	
+	return Quantity;
+}
