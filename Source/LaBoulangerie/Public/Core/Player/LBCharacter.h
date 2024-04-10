@@ -40,4 +40,7 @@ public:
 	UPROPERTY(EditAnywhere)
 	UInputAction* MoveCamAction;
 	void MoveCam(const FInputActionValue& Value);
+
+	UPROPERTY(EditAnywhere)
+	UInputAction* MoveJumpAction;
 };

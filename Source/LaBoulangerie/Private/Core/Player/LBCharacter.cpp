@@ -42,6 +42,7 @@ void ALBCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	{
 		EnhancedInputComponent->BindAction(MoveAction,ETriggerEvent::Triggered,this,&ALBCharacter::Move);
 		EnhancedInputComponent->BindAction(MoveCamAction,ETriggerEvent::Triggered,this,&ALBCharacter::MoveCam);
+		EnhancedInputComponent->BindAction(MoveJumpAction,ETriggerEvent::Triggered,this,&ALBCharacter::Jump);
 	}
 }
 
