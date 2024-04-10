@@ -3,6 +3,7 @@
 #pragma once
 
 #include "CoreMinimal.h"
+#include "Core/Inventory/LBInventoryComponent.h"
 #include "GameFramework/Character.h"
 
 #include "LBCharacter.generated.h"
@@ -20,7 +21,9 @@ class LABOULANGERIE_API ALBCharacter : public ACharacter
 public:
 	// Sets default values for this character's properties
 	ALBCharacter();
-
+	UPROPERTY(EditAnywhere)
+	ULBInventoryComponent* InventoryComponent;
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
@@ -44,4 +47,6 @@ public:
 
 	UPROPERTY(EditAnywhere)
 	UInputAction* MoveJumpAction;
+
+	
 };
