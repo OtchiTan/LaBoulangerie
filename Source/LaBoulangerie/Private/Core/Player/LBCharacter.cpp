@@ -41,6 +41,7 @@ void ALBCharacter::SetupPlayerInputComponent(UInputComponent* PlayerInputCompone
 	if (EnhancedInputComponent)
 	{
 		EnhancedInputComponent->BindAction(MoveAction,ETriggerEvent::Triggered,this,&ALBCharacter::Move);
+		EnhancedInputComponent->BindAction(MoveCamAction,ETriggerEvent::Triggered,this,&ALBCharacter::MoveCam);
 	}
 }
 
@@ -49,5 +50,12 @@ void ALBCharacter::Move(const FInputActionValue& Value)
 	FVector2D MovementVector=Value.Get<FVector2D>();
 	AddMovementInput(GetActorForwardVector(),MovementVector.Y);
 	AddMovementInput(GetActorRightVector(),MovementVector.X);
+}
+
+void ALBCharacter::MoveCam(const FInputActionValue& Value)
+{
+	FVector2D MovementCam=Value.Get<FVector2D>();
+	AddControllerYawInput(MovementCam.X);
+	AddControllerPitchInput(MovementCam.Y);
 }
 
